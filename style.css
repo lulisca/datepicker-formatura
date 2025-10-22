@@ -1,0 +1,139 @@
+/* Estilos gerais (opcional) */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+        Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #EFEFF4;
+    color: #000;
+}
+
+h1 {
+    font-weight: 500;
+    font-size: 24px;
+}
+
+.picker-container {
+    width: 200px;
+    height: 250px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    position: relative;
+    
+   
+}
+
+
+.picker-highlight {
+    position: absolute;
+    top: calc(50% - 25px); 
+    left: 10px;
+    right: 10px;
+    height: 50px; 
+    border-top: 1px solid #C6C6C6;
+    border-bottom: 1px solid #C6C6C6;
+    pointer-events: none; 
+    z-index: 2;
+}
+
+
+/* --- Estilos do Swiper --- */
+
+/* O contentor principal do Swiper
+   Dizemos para ocupar 100% do .picker-container
+*/
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+
+/* Cada "slide" (cada ano)
+*/
+.swiper-slide {
+    height: 50px; 
+    line-height: 50px; 
+    
+    text-align: center;
+    font-size: 24px;
+    font-weight: 500;
+    color: #000;
+    
+    /* O Swiper vai aplicar a opacidade, 
+       mas podemos garantir que a transição é suave
+    */
+    transition: opacity 0.2s;
+}
+
+
+.swiper-slide:not(.swiper-slide-active) {
+    opacity: 0.3; /* Deixa os itens de longe mais transparentes */
+}
+
+/* DEBUG: destaque temporário para confirmar visualmente os slides */
+.swiper-slide {
+    outline: 1px dashed rgba(0,0,0,0.08);
+    background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(0,0,0,0.01));
+}
+
+/* --- Estilos para o card do picker (iOS-like) --- */
+.picker-card {
+    width: 320px;
+    padding: 24px;
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    text-align: center;
+}
+
+.picker-title {
+    margin: 0 0 12px 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.year-picker-container {
+    height: 150px;
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.year-picker-container::before,
+.year-picker-container::after {
+    content: '';
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    height: 1px;
+    background: #D0D0D0;
+    z-index: 10;
+}
+
+.year-picker-container::before { top: calc(50% - 25px); }
+.year-picker-container::after { bottom: calc(50% - 25px); }
+
+.swiper-slide {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: #666;
+    transition: transform 0.18s, color 0.18s, font-size 0.18s, opacity 0.2s;
+}
+
+.swiper-slide:not(.swiper-slide-active) {
+    opacity: 0.35;
+    transform: scale(0.95);
+}
+
+.swiper-slide-active {
+    opacity: 1;
+    color: #000;
+    transform: scale(1.04);
+    font-size: 22px;
+}
